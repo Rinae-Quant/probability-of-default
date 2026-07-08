@@ -5,7 +5,7 @@ import joblib
 
 #page layout
 st.set_page_config( page_title= "Probability of Default System", page_icon="🏦", layout="centered")
-st.title("🏦 Credit Risk Analysis")
+st.title("🏦 CREDIT RISK ANALYSIS by Rinae Musindane")
 st.subheader("Probability of Default Prediction")
 st.write("Enter the applicant's information below.")
 
@@ -17,19 +17,19 @@ scaler = joblib.load(os.path.join(project_folder, "scaler.pkl"))
 model_columns = joblib.load(os.path.join(project_folder, "model_columns.pkl"))
 
 #inputs
-person_age = st.number_input("Age",min_value=18,max_value=100,value=18)
+person_age = st.number_input("Age[18,100]",min_value=18,max_value=100)
 
-person_income = st.number_input("Annual Income", min_value=0.0, value=0.0)
+person_income = st.number_input("Annual Income", min_value=0.0,)
 
-person_emp_length = st.number_input("Employment Length (Years)",min_value=0.0,value=0.0)
+person_emp_length = st.number_input("Employment Length (Years)",min_value=0.0)
 
-loan_amnt = st.number_input( "Loan Amount",min_value=0.0,value=0.0)
+loan_amnt = st.number_input( "Loan Amount",min_value=0.0)
 
-loan_int_rate = st.number_input( "Interest Rate (%)", min_value=0.0, value=0.0)
+loan_int_rate = st.number_input( "Interest Rate (%)", min_value=0.0)
 
-loan_percent_income = st.number_input("Loan Percent Income", min_value=0.0, value=0.0)
+loan_percent_income = st.number_input("Loan Percent Income", min_value=0.0,)
 
-cb_person_cred_hist_length = st.number_input("Credit History Length",min_value=0,value=0)
+cb_person_cred_hist_length = st.number_input("Credit History Length",min_value=0)
 
 person_home_ownership = st.selectbox("Home Ownership",["RENT", "OWN", "MORTGAGE", "OTHER"])
 
@@ -70,7 +70,7 @@ if st.button("Predict"):
     probability = model.predict_proba(input_scaled)[0][1]
 
     # Decision
-    if probability < 0.45:
+    if probability < 0.50:
         decision = "✅ APPROVED"
     else:
         decision = "❌ REJECTED"
