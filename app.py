@@ -17,19 +17,19 @@ scaler = joblib.load(os.path.join(project_folder, "scaler.pkl"))
 model_columns = joblib.load(os.path.join(project_folder, "model_columns.pkl"))
 
 #inputs
-person_age = st.number_input("Age[18,100]",min_value=18,max_value=100)
+person_age = st.number_input("Age[18,100]",min_value=18,max_value=100,value =30)
 
-person_income = st.number_input("Annual Income", min_value=0.0,)
+person_income = st.number_input("Annual Income", min_value=0,value = 50000)
 
-person_emp_length = st.number_input("Employment Length (Years)",min_value=0.0)
+person_emp_length = st.number_input("Employment Length (Years)",min_value=0,value = 6)
 
-loan_amnt = st.number_input( "Loan Amount",min_value=0.0)
+loan_amnt = st.number_input( "Loan Amount",min_value=0,value = 10000)
 
-loan_int_rate = st.number_input( "Interest Rate (%)", min_value=0.0)
+loan_int_rate = st.number_input( "Interest Rate (%)", min_value=0.0,value = 12.5)
 
-loan_percent_income = st.number_input("Loan Percent Income", min_value=0.0,)
+loan_percent_income = st.number_input("Loan Percent Income", min_value=0.0,value = 0.2)
 
-cb_person_cred_hist_length = st.number_input("Credit History Length",min_value=0)
+cb_person_cred_hist_length = st.number_input("Credit History Length",min_value=0,value =5)
 
 person_home_ownership = st.selectbox("Home Ownership",["RENT", "OWN", "MORTGAGE", "OTHER"])
 
